@@ -1,9 +1,7 @@
 # 🏊 Optimal Land–Water Path: Energy-Based Path Optimization
 <!-- Replace images/banner.png with your own main image (recommended width: 800-1200 px) -->
 <p align="center">
-  <img src="photo_2026-11-22_16-59-38" alt="Project banner: optimal land-water path" width="700"/>
-  <br/>
-  <em>PLACEHOLDER: main image of the project (for example, the final plot with the best path)</em>
+  <img src="photo_2026-11-22_16-59-38.jpg" alt="Project banner: optimal land-water path" width="700"/>
 </p>
 
 
