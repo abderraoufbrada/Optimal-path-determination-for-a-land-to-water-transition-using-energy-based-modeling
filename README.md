@@ -272,7 +272,7 @@ Change these values at the top of the script to test other scenarios.
 
 The numerical result agrees with the analytical solution within the scan resolution.
 
-![Result figure](images/result.png)
+![Result figure](Screenshot 2026-11-22 172828.png)
 *PLACEHOLDER: final figure with the best path highlighted*
 
 ---
