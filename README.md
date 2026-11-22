@@ -260,7 +260,6 @@ A matplotlib window opens showing the points, the tested crossing points, and th
 Change these values at the top of the script to test other scenarios.
 
 ---
-
 ## 📊 Results
 
 <!-- Add your own result images and notes here -->
@@ -272,8 +271,21 @@ Change these values at the top of the script to test other scenarios.
 
 The numerical result agrees with the analytical solution within the scan resolution.
 
-![Result figure](Screenshot 2026-11-22 172828.png)
-*PLACEHOLDER: final figure with the best path highlighted*
+### All tested paths
+
+<p align="center">
+  <img src="Screenshot 2026-11-22 172828.png" alt="All tested paths" width="600"/>
+  <br/>
+  <em>PLACEHOLDER: all candidate crossing points on the shoreline</em>
+</p>
+
+### Best path
+
+<p align="center">
+  <img src="Screenshot 2026-11-22 172757.png" alt="Best path" width="600"/>
+  <br/>
+  <em>PLACEHOLDER: final figure with the best path highlighted (dashed)</em>
+</p>
 
 ---
 
