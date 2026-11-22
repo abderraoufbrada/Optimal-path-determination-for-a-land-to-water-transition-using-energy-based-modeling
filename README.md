@@ -1,4 +1,11 @@
 # 🏊 Optimal Land–Water Path: Energy-Based Path Optimization
+<!-- Replace images/banner.png with your own main image (recommended width: 800-1200 px) -->
+<p align="center">
+  <img src="photo_2026-11-22_16-59-38" alt="Project banner: optimal land-water path" width="700"/>
+  <br/>
+  <em>PLACEHOLDER: main image of the project (for example, the final plot with the best path)</em>
+</p>
+
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-visualization-orange)
