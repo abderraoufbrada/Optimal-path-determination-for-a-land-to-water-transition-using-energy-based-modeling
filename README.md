@@ -18,11 +18,11 @@ A physics-based simulation that finds the **best path between a point on land an
 
 ## 📸 Preview
 
-<!-- Replace the paths below with your own images (create an `images/` folder) -->
+<!-- Replace the paths below with your own images -->
 
 | All candidate paths | Best path found |
 |:---:|:---:|
-| ![All candidate paths](Screenshot 2026-11-22 172828.png) | ![Best path](Screenshot 2026-11-22 172757.pngg) |
+| ![All candidate paths](Screenshot%202026-11-22%20172828.png) | ![Best path](Screenshot%202026-11-22%20172757.png) |
 | *PLACEHOLDER: all tested crossing points on the shoreline* | *PLACEHOLDER: optimal path (dashed)* |
 
 
