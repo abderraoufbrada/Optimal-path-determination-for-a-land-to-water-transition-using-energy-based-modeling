@@ -304,10 +304,5 @@ The numerical result agrees with the analytical solution within the scan resolut
 4th-year student, Micro and Nano Sensors and Instrumentation
 National School of Nanosciences and Nanotechnology, Algeria
 
-GitHub: [@your-username](https://github.com/your-username)
-
----
-
-## 📄 License
-
-This project is released under the MIT License. See [LICENSE](LICENSE) for details.
+GitHub: [@your-username](https://github.com/abderraoufbrada)
+LinkedIn: [Abderraouf Brada]([https://www.linkedin.com/in/your-linkedin-id](https://www.linkedin.com/in/abderraouf-brada-16bab632a?utm_source=share_via&utm_content=profile&utm_medium=member_android))
