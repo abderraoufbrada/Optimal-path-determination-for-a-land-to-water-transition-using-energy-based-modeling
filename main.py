@@ -31,8 +31,8 @@ while z <= 5:
 
     # draw all possible paths
     plt.plot(z, 3, 'o')
-    # plt.plot([A[0], z], [A[1], 3], '-o')
-    # plt.plot([B[0], z], [B[1], 3], '-o')
+    plt.plot([A[0], z], [A[1], 3], '-o')
+    plt.plot([B[0], z], [B[1], 3], '-o')
 
     # the function of each path between B and z
     x_BZ = lambda t: B[0] + (z - B[0]) * t
@@ -45,15 +45,15 @@ while z <= 5:
     # the velocity Bz
     dx_dtB = (z - B[0])
     dy_dtB = 3 - B[1]
-    vB = sqrt(dx_dtB  2 + dy_dtB  2)
+    vB = sqrt(dx_dtB ** 2 + dy_dtB ** 2)
 
     # the velocity Az
     dx_dtA = A[0] - z
     dy_dtA = A[1] - 3
-    vA = sqrt(dx_dtA  2 + dy_dtA  2)
+    vA = sqrt(dx_dtA ** 2 + dy_dtA ** 2)
 
     # the distance of each path on water
-    d = ((z - A[0])2 + (3 - A[1])2)**0.5
+    d = ((z - A[0]) ** 2 + (3 - A[1]) ** 2) ** 0.5
 
     # kinetic energy in the land
     Ec1 = 0.5 * m * vB ** 2
