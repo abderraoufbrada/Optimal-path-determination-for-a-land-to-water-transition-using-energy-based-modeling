@@ -22,14 +22,9 @@ A physics-based simulation that finds the **best path between a point on land an
 
 | All candidate paths | Best path found |
 |:---:|:---:|
-| ![All candidate paths](images/all_paths.png) | ![Best path](images/best_path.png) |
+| ![All candidate paths](Screenshot 2026-11-22 172828.png) | ![Best path](Screenshot 2026-11-22 172757.pngg) |
 | *PLACEHOLDER: all tested crossing points on the shoreline* | *PLACEHOLDER: optimal path (dashed)* |
 
-<p align="center">
-  <img src="images/energy_vs_z.png" alt="Energy S as a function of z" width="500"/>
-  <br/>
-  <em>PLACEHOLDER: cost S as a function of the crossing point z</em>
-</p>
 
 ---
 
@@ -167,43 +162,47 @@ $$
 ---
  
 ## ✅ Analytical Check
- 
-Because $d = v_A$, the water term becomes $\left(\tfrac{m}{2} - k\right) v_A^2$. Also, $E_p$ does not depend on $z$. Let
- 
+
+Because $d = v_A$, the water term becomes $\left(\frac{m}{2} - k\right) v_A^2$. Also, $E_p$ does not depend on $z$. Let
+
 $$
 a = \frac{m}{2}, \qquad b = \frac{m}{2} - k
 $$
- 
+
 Then the objective simplifies to:
- 
+
 $$
 S(z) = a\left[(z - x_B)^2 + (3 - y_B)^2\right] + b\left[(x_A - z)^2 + (y_A - 3)^2\right] - E_p
 $$
- 
+
 Setting the derivative to zero:
- 
+
 $$
 \frac{dS}{dz} = 2a\,(z - x_B) + 2b\,(z - x_A) = 0
 $$
- 
+
 Solving for $z$:
- 
+
 $$
-\boxed{z^{*} = \frac{a\,x_B + b\,x_A}{a + b}}
+\boxed{z^\ast = \frac{a\,x_B + b\,x_A}{a + b}}
 $$
- 
-Since $\dfrac{d^2S}{dz^2} = 2(a + b) > 0$, this point is a minimum.
- 
+
+Since $\frac{d^2S}{dz^2} = 2(a + b) > 0$, this point is a minimum.
+
 With $m = 70$ kg and $k = 0.25$, we get $a = 35$ and $b = 34.75$:
- 
+
 $$
-\boxed{z^{*} = \frac{35(1) + 34.75(5)}{69.75} \approx 2.99}
-\qquad
-\boxed{S(z^{*}) \approx 894.4}
+\boxed{z^\ast = \frac{35 \times 1 + 34.75 \times 5}{35 + 34.75} = \frac{208.75}{69.75} \approx 2.99}
 $$
- 
+
+This value is inside the scan range $[1, 5]$, and the minimum cost is:
+
+$$
+\boxed{S(z^\ast) \approx 894.45}
+$$
+
 This result is used to **validate the numerical scan** (see [Results](#-results)).
- 
+
 ---
 ## ⚙️ Algorithm
 
