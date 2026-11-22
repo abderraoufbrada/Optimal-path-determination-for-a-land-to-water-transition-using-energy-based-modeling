@@ -73,117 +73,138 @@ An object of mass $m$ starts at point $B$ **on land** and must reach point $A$ *
 ---
 
 ## 🧮 Mathematical Model
-
+ 
+The object starts at $B = (x_B, y_B)$ on land, crosses the shoreline $y = 3$ at the point $Z = (z, 3)$, and ends at $A = (x_A, y_A)$ in the water.
+ 
 ### 1. Path parametrization
-
-Each path is split into two straight segments, with parameter $t \in [0, 1]$.
-
+ 
+Each path is made of two straight segments. Each segment is described by a parameter $t \in [0, 1]$.
+ 
 **Land segment $B \to Z$:**
-
+ 
 $$
-x_{BZ}(t) = x_B + (z - x_B)\,t \qquad
+x_{BZ}(t) = x_B + (z - x_B)\,t, \qquad
 y_{BZ}(t) = y_B + (3 - y_B)\,t
 $$
-
+ 
 **Water segment $Z \to A$:**
-
+ 
 $$
-x_{ZA}(t) = z + (x_A - z)\,t \qquad
+x_{ZA}(t) = z + (x_A - z)\,t, \qquad
 y_{ZA}(t) = 3 + (y_A - 3)\,t
 $$
-
-### 2. Velocities
-
-Differentiating the parametrization with respect to $t$:
-
+ 
+### 2. Speeds
+ 
+The speed on each segment is the magnitude of the derivative with respect to $t$, which is the path length covered in one unit of the parameter:
+ 
 $$
-v_B = \sqrt{(z - x_B)^2 + (3 - y_B)^2}
+v_B = \sqrt{\left(\frac{dx_{BZ}}{dt}\right)^2 + \left(\frac{dy_{BZ}}{dt}\right)^2}
+= \sqrt{(z - x_B)^2 + (3 - y_B)^2}
 $$
-
+ 
 $$
-v_A = \sqrt{(x_A - z)^2 + (y_A - 3)^2}
+v_A = \sqrt{\left(\frac{dx_{ZA}}{dt}\right)^2 + \left(\frac{dy_{ZA}}{dt}\right)^2}
+= \sqrt{(x_A - z)^2 + (y_A - 3)^2}
 $$
-
+ 
 ### 3. Distance travelled in water
-
+ 
 $$
-d = \sqrt{(z - x_A)^2 + (3 - y_A)^2}
+d = \sqrt{(x_A - z)^2 + (y_A - 3)^2} = v_A
 $$
-
+ 
 ### 4. Kinetic energy
-
+ 
 On land (no resistance):
-
+ 
 $$
-E_{c,1} = \tfrac{1}{2}\, m\, v_B^{2}
+E_{c,1} = \frac{1}{2}\, m\, v_B^{2}
 $$
-
-In water (viscous loss proportional to speed and distance):
-
+ 
+In water (viscous loss proportional to the speed and the distance):
+ 
 $$
-E_{c,2} = \tfrac{1}{2}\, m\, v_A^{2} - k\, v_A\, d
+E_{c,2} = \frac{1}{2}\, m\, v_A^{2} - k\, v_A\, d
 $$
-
+ 
 Total kinetic term:
-
+ 
 $$
 E_c = E_{c,1} + E_{c,2}
 $$
-
+ 
 ### 5. Potential energy (weight and buoyancy)
-
+ 
+The potential energy is the weight minus the buoyant force, multiplied by the depth:
+ 
 $$
 E_{p,\text{land}} = 0
 $$
-
+ 
 $$
-E_{p,\text{water}} = g\,h\,\left(m - \rho_{w}\,V\right)
+E_{p,\text{water}} = h\,(m g - \rho_{w} V g) = g\,h\,\left(m - \rho_{w}\,V\right)
 $$
-
+ 
 $$
 E_p = E_{p,\text{land}} + E_{p,\text{water}}
 $$
-
+ 
+With the values used here, $E_p = 9.81 \times 0.25 \times (70 - 250) \approx -441.45$. It is negative because $\rho_w V = 250$ kg is larger than $m = 70$ kg, so the object is lighter than the water it displaces.
+ 
 ### 6. Objective function
-
+ 
 $$
 S(z) = E_c(z) - E_p
 $$
-
+ 
 The optimal crossing point is:
-
+ 
 $$
 z^{*} = \underset{z \in [1,\,5]}{\arg\min}\; S(z)
 $$
-
+ 
 ---
-
+ 
 ## ✅ Analytical Check
-
-Because $E_p$ does not depend on $z$, and $d = v_A$, the objective simplifies to:
-
+ 
+Because $d = v_A$, the water term becomes $\left(\tfrac{m}{2} - k\right) v_A^2$. Also, $E_p$ does not depend on $z$. Let
+ 
 $$
-S(z) = \underbrace{\tfrac{m}{2}}_{a}\, L_B^{2}(z) + \underbrace{\left(\tfrac{m}{2} - k\right)}_{b}\, L_A^{2}(z) - E_p
+a = \frac{m}{2}, \qquad b = \frac{m}{2} - k
 $$
-
-with $L_B^2 = (z - x_B)^2 + (3 - y_B)^2$ and $L_A^2 = (x_A - z)^2 + (y_A - 3)^2$.
-
-Setting $\dfrac{dS}{dz} = 0$ gives a closed-form solution:
-
+ 
+Then the objective simplifies to:
+ 
 $$
-z^{*} = \frac{a\,x_B + b\,x_A}{a + b}
+S(z) = a\left[(z - x_B)^2 + (3 - y_B)^2\right] + b\left[(x_A - z)^2 + (y_A - 3)^2\right] - E_p
 $$
-
-With $m = 70$ kg and $k = 0.25$: $a = 35$, $b = 34.75$, so
-
+ 
+Setting the derivative to zero:
+ 
 $$
-z^{*} = \frac{35(1) + 34.75(5)}{69.75} \approx 2.99
+\frac{dS}{dz} = 2a\,(z - x_B) + 2b\,(z - x_A) = 0
 $$
-
-This is used to **validate the numerical scan** (see [Results](#-results)).
-
+ 
+Solving for $z$:
+ 
+$$
+\boxed{z^{*} = \frac{a\,x_B + b\,x_A}{a + b}}
+$$
+ 
+Since $\dfrac{d^2S}{dz^2} = 2(a + b) > 0$, this point is a minimum.
+ 
+With $m = 70$ kg and $k = 0.25$, we get $a = 35$ and $b = 34.75$:
+ 
+$$
+\boxed{z^{*} = \frac{35(1) + 34.75(5)}{69.75} \approx 2.99}
+\qquad
+\boxed{S(z^{*}) \approx 894.4}
+$$
+ 
+This result is used to **validate the numerical scan** (see [Results](#-results)).
+ 
 ---
-
 ## ⚙️ Algorithm
 
 1. Define points $A$ and $B$ and the physical constants.
